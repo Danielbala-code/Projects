@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Procedure-to-Skill Studio</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><a class="brand" href="/">P<span>/</span>S <small>PROCEDURE STUDIO</small></a><span class="pill" id="model-status">Checking local model…</span></header>
+<main>
+<div class="intro"><div><p class="eyebrow">BUSINESS KNOWLEDGE, READY TO USE</p><h1>From procedure<br>to practical skill.</h1><p class="lead">Turn a short document into a skill your AI assistant can follow.<br>Keep the source visible. Put human review first.</p></div><div class="intro-note"><span>01 / 03</span><p>Choose a procedure.<br>Review its instructions.<br>Take the skill with you.</p><small>Powered by Skill Seekers · Local AI</small></div></div>
+<nav aria-label="Workflow"><span id="nav-choose" class="active">01 &nbsp; Choose</span><span id="nav-review">02 &nbsp; Review</span><span id="nav-download">03 &nbsp; Download</span></nav>
+<div id="notice" role="status" aria-live="polite" hidden></div>
+<section id="choose" class="choose-grid">
+<article class="card"><p class="eyebrow">YOUR PROCEDURE</p><h2>Start with a document</h2><p>Upload a short, approved procedure. We’ll extract its text and draft steps with supporting quotes.</p><label class="upload" for="file"><span class="upload-icon">↑</span><strong>Choose a document</strong><span>Text PDF, TXT or Markdown</span><input id="file" type="file" accept=".pdf,.txt,.md"></label><small>Up to 5 MB · 10 pages · 12,000 extracted characters<br>Scanned PDFs need text extraction first.</small></article>
+<article class="card sample"><p class="eyebrow">TRY THE EXAMPLE</p><h2>A monthly reporting SOP</h2><p>See how a site coordinator collects electricity information, attaches evidence and gets human approval.</p><div class="sample-label">FICTIONAL PORTFOLIO EXAMPLE</div><button id="load-sample" class="primary">Load example <span>→</span></button><small>Inspired by business reporting needs.<br>This is not Vinarchy policy.</small></article>
+</section>
+<section id="workspace" hidden>
+<div class="workspace-heading"><div><p class="eyebrow" id="source-kind">SOURCE DOCUMENT</p><h2 id="filename"></h2><p id="source-meta"></p></div><button id="start-over" class="secondary">Choose another</button></div>
+<div class="toolbar"><button id="generate" class="primary">Generate draft skill <span>↗</span></button><button id="preview" class="secondary" hidden>Use sample preview</button><span id="draft-mode">Source ready for drafting</span></div>
+<div class="review-grid"><article class="card source-card"><div class="card-heading"><h3>Original procedure</h3><span>YOUR SOURCE</span></div><div id="source-pages"></div></article><article class="card draft-card"><div class="card-heading"><h3>Draft instructions</h3><span id="step-count">AWAITING DRAFT</span></div><p id="empty-draft">Generate a draft to see instructions and the source passage supporting each one. Review every step for accuracy and missing requirements.</p><div id="draft-content" hidden><label class="field">Purpose<textarea id="purpose" rows="2" maxlength="600"></textarea></label><div id="steps"></div><div class="edit-actions"><button id="add-step" class="secondary">Add a missing instruction</button><button id="save" class="secondary">Save reviewed instructions</button></div><details><summary>Inspect or edit the exported SKILL.md</summary><textarea id="markdown" spellcheck="false" maxlength="24000" aria-label="Skill Markdown"></textarea><button id="save-markdown" class="secondary">Save Markdown edits</button></details><div id="citation-status"></div></div></article></div>
+<div id="approval" class="approval" hidden><div><h3>Make it ready to use</h3><label class="check"><input id="acknowledged" type="checkbox">I checked the instructions, source quotes, missing requirements and my edits.</label><p>Exact quotes help trace the draft. They do not prove its meaning or completeness. This acknowledgement is a demo review record.</p></div><div class="approval-actions"><button id="approve" class="primary">Approve reviewed skill</button><a id="download" class="primary download" hidden>Download skill ZIP ↓</a></div></div>
+</section>
+<footer><span>A portfolio demonstration of document automation.</span><span>Source → Draft → Human review → Portable skill</span></footer>
+</main><script src="/app.js" defer></script>
+</body></html>

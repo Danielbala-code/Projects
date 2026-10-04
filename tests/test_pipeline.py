@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pymupdf as fitz
 
-from studio.pipeline import extract_source, build_draft, validate_draft, package_skill
+from studio.pipeline import extract_source, build_draft, validate_draft, package_skill, source_passages, render_skill
 
 
 def pdf_bytes(*pages):
@@ -48,6 +48,42 @@ class PipelineTests(unittest.TestCase):
         invalid = {'purpose': 'Reporting', 'steps': [{'action': 'Submit.', 'page': 2, 'quote': 'Submit without checking the figures.'}]}
         self.assertTrue(validate_draft(invalid, pages))
         self.assertTrue(validate_draft({'purpose': 'Reporting', 'steps': []}, pages))
+
+    def test_selected_source_ids_copy_exact_quotes_from_original_pages(self):
+        pages = [{'page': 1, 'text': 'Attach meter evidence to the report.'}, {'page': 2, 'text': 'A reviewer must approve the report.'}]
+        class Transport:
+            def call(self, prompt, **kwargs):
+                return json.dumps({'purpose': 'Reporting', 'steps': [{'source_id': 2, 'action': 'Get reviewer approval.'}]})
+        draft = build_draft(pages, Transport())
+        self.assertEqual(draft['steps'][0]['page'], 2)
+        self.assertEqual(draft['steps'][0]['quote'], pages[1]['text'])
+        self.assertEqual(validate_draft(draft, pages), [])
+
+    def test_unknown_source_id_does_not_invent_evidence(self):
+        class Transport:
+            def call(self, prompt, **kwargs):
+                return json.dumps({'purpose': 'Reporting', 'steps': [{'source_id': 999, 'action': 'Get reviewer approval.'}]})
+        with self.assertRaisesRegex(ValueError, 'source'):
+            build_draft([{'page': 1, 'text': 'Attach meter evidence to the report.'}], Transport())
+
+    def test_numbered_steps_preserve_order_and_use_their_own_evidence(self):
+        pages = [{'page': 1, 'text': 'Demo context.\n\nPurpose: review.\n\n1. Attach meter evidence to the report.\n2. A reviewer must approve the report.'}]
+        calls = []
+        class Transport:
+            def call(self, prompt, **kwargs):
+                calls.append(prompt)
+                return json.dumps({'purpose': 'Reporting', 'steps': [{'source_id': 1, 'action': 'Review this instruction.'}]})
+        draft = build_draft(pages, Transport())
+        self.assertEqual(len(draft['steps']), 2)
+        self.assertEqual(draft['steps'][0]['quote'], 'Attach meter evidence to the report.')
+        self.assertEqual(draft['steps'][1]['quote'], 'A reviewer must approve the report.')
+        self.assertEqual(len(calls), 2)
+
+    def test_skill_keeps_authoritative_details_when_ai_clarification_is_short(self):
+        quote = 'The coordinator records the site name and both reporting dates.'
+        text = render_skill({'purpose': 'Reporting', 'steps': [{'action': 'Record the site name.', 'page': 1, 'quote': quote}]})
+        self.assertIn(quote, text)
+        self.assertIn('authoritative', text.lower())
 
     def test_packaging_uses_skill_seekers_archive_format(self):
         with tempfile.TemporaryDirectory() as td:

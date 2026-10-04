@@ -12,13 +12,15 @@ Skill Seekers 3.10.0 provides structured PDF extraction, custom WorkflowEngine s
 
 One custom SOP drafting stage explicitly receives clean extracted page text and its returned draft is persisted. Ignore programming-code classifications, preserving page text. Upstream source remains unmodified.
 
-Generation uses Apache-2.0 Qwen2.5-0.5B-Instruct Q4_K_M GGUF through llama-cpp-python on CPU. Pin revision `9217f5db79a29953eb74d5343926648285ec7e67` and SHA-256 `74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db`. Download the 491,400,032-byte model separately from source control. Use bounded context, deterministic temperature and JSON output. Evaluate a real sample before claiming suitability.
+Generation uses Apache-2.0 Qwen2.5-1.5B-Instruct Q4_K_M GGUF through llama-cpp-python on CPU. Pin revision `91cad51170dc346986eccefdc2dd33a9da36ead9` and SHA-256 `6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`. Download the 1,117,320,736-byte model separately from source control. Use bounded context, deterministic temperature and JSON output. The 0.5B candidate was rejected after real drafting failures.
+
+For numbered procedures, preserve detected instructions and order structurally, then clarify each instruction through a custom workflow call. Copy quotes directly from source and include the full source requirements in the skill. AI clarifications can still omit details. Non-numbered sources use passage selection and require especially careful coverage review; broad document interpretation is not certified.
 
 No embeddings, vector database or paid inference API are required initially. Whole-source drafting suits the bounded short SOP.
 
 ## Flow
 
-1. Load the fictional sample or upload text PDF/TXT/Markdown.
+1. Load the fictional sample or upload text PDF/TXT/Markdown; numbered short procedures are recommended.
 2. View source pages; generate purpose and ordered steps with exact quotes/page references. Identify live generation, model unavailable or explicitly selected sample preview.
 3. Inspect all steps and edit skill Markdown. Invalid citations block review approval. Editing resets approval.
 4. Explicitly acknowledge review; export SKILL.md, full source references, draft manifest and review metadata through Skill Seekers packaging.
