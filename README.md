@@ -4,6 +4,8 @@ A small business document tool built on **Skill Seekers**. Load a procedure, dra
 
 This is an interview portfolio project in the Projects collection. Its fictional electricity-reporting example illustrates a reporting workflow; it is **not Vinarchy policy**. Vinarchy's [public sustainability page](https://vinarchy.com/pages/sustainability) describes collecting and auditing emissions data after its merger. That is business context, not evidence of an internal system problem or endorsement.
 
+![Procedure-to-Skill Studio interface](docs/assets/studio.png)
+
 ## What you can demonstrate
 
 1. Load the fictional example or upload a short text PDF, TXT or Markdown procedure.

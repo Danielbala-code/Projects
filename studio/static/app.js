@@ -28,12 +28,14 @@ async function run(action, message) {
   if (busy) return;
   busy = true;
   document.querySelectorAll('button').forEach(button => button.disabled = true);
+  document.querySelectorAll('textarea, #acknowledged, .page-label input').forEach(input => input.disabled = true);
   $('file').disabled = true;
   notice(message);
   try { await action(); } catch (error) { notice(error.message, true); }
   finally {
     busy = false;
     document.querySelectorAll('button').forEach(button => button.disabled = false);
+    document.querySelectorAll('textarea, #acknowledged, .page-label input').forEach(input => input.disabled = false);
     $('file').disabled = false;
     updateApproval();
   }
@@ -115,11 +117,11 @@ $('file').addEventListener('change', () => {
 });
 $('generate').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/draft`, jsonRequest('POST', {mode: 'generate'}))); notice('Draft generated. Inspect every instruction and check for anything missing.');}, 'Drafting with local Qwen. The first run loads the model; this may take a minute…'));
 $('preview').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/draft`, jsonRequest('POST', {mode: 'preview'}))); notice('This is a fixed fictional sample preview. No model inference was used.');}, 'Loading sample preview…'));
-$('save').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/draft`, jsonRequest('PUT', {draft: readDraft()}))); notice('Instructions saved. The skill Markdown was rebuilt. Review and acknowledge again.');}, 'Saving reviewed instructions…'));
-$('save-markdown').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/draft`, jsonRequest('PUT', {draft: readDraft(), markdown: $('markdown').value}))); notice('Markdown edits saved. Review their meaning and acknowledge again.');}, 'Saving Markdown edits…'));
+$('save').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/draft`, jsonRequest('PUT', {draft: readDraft(), revision: current.revision}))); notice('Instructions saved. The skill Markdown was rebuilt. Review and acknowledge again.');}, 'Saving reviewed instructions…'));
+$('save-markdown').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/draft`, jsonRequest('PUT', {draft: readDraft(), markdown: $('markdown').value, revision: current.revision}))); notice('Markdown edits saved. Review their meaning and acknowledge again.');}, 'Saving Markdown edits…'));
 $('add-step').addEventListener('click', () => {if ($('steps').children.length >= 16) {notice('This demo supports at most 16 instructions.', true); return;} addStep({action: '', quote: '', page: 1}, $('steps').children.length); markDirty();});
 $('purpose').addEventListener('input', markDirty); $('markdown').addEventListener('input', markDirty);
 $('acknowledged').addEventListener('change', updateApproval);
-$('approve').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/approve`, jsonRequest('POST', {acknowledged: $('acknowledged').checked}))); notice('Review recorded. Download the skill and its source references.');}, 'Recording your review…'));
+$('approve').addEventListener('click', () => run(async () => {render(await api(`/api/procedures/${current.id}/approve`, jsonRequest('POST', {acknowledged: $('acknowledged').checked, revision: current.revision}))); notice('Review recorded. Download the skill and its source references.');}, 'Recording your review…'));
 $('start-over').addEventListener('click', () => {current = null; dirty = false; $('workspace').hidden = true; $('choose').hidden = false; $('file').value = ''; $('nav-choose').classList.add('active'); $('nav-review').classList.remove('active'); $('nav-download').classList.remove('active'); notice('');});
-api('/api/health').then(status => {$('model-status').textContent = status.model_available ? '● Local Qwen model ready' : '○ Sample preview ready · model not downloaded';}).catch(() => {$('model-status').textContent = 'Server unavailable';});
+api('/api/health').then(status => {$('model-status').textContent = status.model_available ? '● Model file found · verifies on first use' : '○ Sample preview ready · model not downloaded';}).catch(() => {$('model-status').textContent = 'Server unavailable';});

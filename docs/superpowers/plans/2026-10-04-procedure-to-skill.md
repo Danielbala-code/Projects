@@ -1,12 +1,12 @@
 # Procedure-to-Skill Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Run a Skill Seekers document-to-skill demo on CPU with review and Codespaces setup.
 
 **Architecture:** Skill Seekers extracts source pages, runs a custom SOP stage and packages the reviewed skill. FastAPI handles uploads, local Qwen drafting, review and download.
 
-**Tech Stack:** Python 3.12, Skill Seekers 3.10.0, FastAPI, llama-cpp-python, Qwen2.5-0.5B-Instruct GGUF, pytest.
+**Tech Stack:** Python 3.12, Skill Seekers 3.10.0, FastAPI, llama-cpp-python, Qwen2.5-1.5B-Instruct Q4_K_M GGUF, pytest.
 
 **Spec:** `docs/superpowers/specs/2026-10-04-skill-seekers-studio-design.md`
 
@@ -32,9 +32,9 @@
 
 **Interfaces:** `extract_source(content: bytes, filename: str) -> list[dict]`; `build_draft(pages: list[dict], transport: object) -> dict`; `validate_draft(draft: dict, pages: list[dict]) -> list[str]`; `package_skill(skill_dir: Path, output_dir: Path) -> Path`.
 
-- [ ] Write extraction/citation/packaging tests; run pytest and observe missing-behavior failures.
-- [ ] Implement clean page extraction, explicit WorkflowEngine context/output handling, fixture and notices.
-- [ ] Verify real PDF/archive outputs and commit pipeline.
+- [x] Write extraction/citation/packaging tests; run pytest and observe missing-behavior failures.
+- [x] Implement clean page extraction, explicit WorkflowEngine context/output handling, fixture and notices.
+- [x] Verify real PDF/archive outputs and commit pipeline.
 
 ### Task 2: Local model and browser review
 
@@ -42,9 +42,9 @@
 
 **Interfaces:** `LocalModel.call(prompt: str, max_tokens: int) -> str`; `create_app(model: object | None = None) -> FastAPI`; HTTP ingestion/draft/review/export consume Task 1.
 
-- [ ] Write multipart HTTP tests for availability, approval/export and missing sessions; observe failures.
-- [ ] Implement bounded loading, explicit preview, source-visible review and server-enforced approval.
-- [ ] Run tests plus real Qwen sample; inspect source support/omissions; commit application.
+- [x] Write multipart HTTP tests for availability, approval/export and missing sessions; observe failures.
+- [x] Implement bounded loading, explicit preview, source-visible review and server-enforced approval.
+- [x] Run tests plus real Qwen sample; inspect source support/omissions; commit application.
 
 ### Task 3: Reproducible cloud delivery
 
@@ -52,7 +52,11 @@
 
 **Interfaces:** downloader emits verified GGUF; `python -m uvicorn studio.app:app --host 0.0.0.0 --port 8000` serves app; CI runs pytest without model download.
 
-- [ ] Test checksum/failure cleanup before writing downloader.
-- [ ] Add install/start instructions, private Codespaces port and CI; run suite/HTTP walkthrough.
-- [ ] Record evaluation/limits, commit and obtain whole-branch review.
-- [ ] Present runnable demo for publication checkpoint.
+- [x] Test checksum/failure cleanup before writing downloader.
+- [x] Add install/start instructions, private Codespaces port and CI; run suite/HTTP walkthrough.
+- [x] Record evaluation/limits, commit and obtain whole-branch review.
+- [x] Present runnable demo for publication checkpoint.
+
+## Final verification
+
+Completed in the selected cloud checkout. The rejected 0.5B candidate was replaced by the pinned 1.5B model after real quality checks. Independent review defects were reproduced and fixed. See `docs/verification.md` for 18 passing tests, 8 passing subtests, actual model/browser checks and fresh installation evidence. GitHub publication remains the next user checkpoint.

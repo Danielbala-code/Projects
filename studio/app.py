@@ -31,11 +31,13 @@ class DraftRequest(BaseModel):
 
 class EditRequest(BaseModel):
     draft: Draft
+    revision: int = Field(ge=0)
     markdown: str | None = Field(default=None, max_length=24_000)
 
 
 class ApproveRequest(BaseModel):
     acknowledged: bool = False
+    revision: int = Field(ge=0)
 
 
 def create_app(model: object | None = None) -> FastAPI:
@@ -96,7 +98,9 @@ def create_app(model: object | None = None) -> FastAPI:
 
     @app.post('/api/procedures/{pid}/draft')
     def draft(pid: str, request: DraftRequest):
-        item = get_session(pid)
+        with state_lock:
+            item = get_session(pid)
+            starting_revision = item['revision']
         if request.mode == 'preview':
             if not item['sample']:
                 raise HTTPException(400, 'Preview applies only to the fictional sample. Your upload needs live generation.')
@@ -123,6 +127,9 @@ def create_app(model: object | None = None) -> FastAPI:
             elapsed = round(time.monotonic()-started, 2)
             mode = 'local-model'
         with state_lock:
+            item = get_session(pid)
+            if item['revision'] != starting_revision:
+                raise HTTPException(409, 'The draft changed while generation ran. Your saved edits were kept. Reload before retrying.')
             item.update(draft=result, original_draft=copy.deepcopy(result), markdown=render_skill(result), citation_errors=validate_draft(result, item['pages']), approved=False, mode=mode, generation_seconds=elapsed, revision=item['revision']+1)
             item.pop('reviewed_at', None)
             return public(item)
@@ -133,6 +140,8 @@ def create_app(model: object | None = None) -> FastAPI:
             item = get_session(pid)
             if not item['draft']:
                 raise HTTPException(409, 'Generate a draft before editing it.')
+            if request.revision != item['revision']:
+                raise HTTPException(409, 'A newer draft exists. Reload and review it before saving.')
             data = request.draft.model_dump()
             markdown = request.markdown if request.markdown is not None else render_skill(data)
             if len(markdown.strip()) < 100:
@@ -147,6 +156,8 @@ def create_app(model: object | None = None) -> FastAPI:
             item = get_session(pid)
             if not request.acknowledged:
                 raise HTTPException(400, 'Acknowledge source accuracy, coverage and your edits before approving.')
+            if request.revision != item['revision']:
+                raise HTTPException(409, 'A newer draft exists. Reload and review it before approving.')
             if not item['draft'] or validate_draft(item['draft'], item['pages']):
                 raise HTTPException(409, 'Resolve missing or unsupported source citations before approving.')
             item.update(approved=True, reviewed_at=datetime.now(timezone.utc).isoformat())

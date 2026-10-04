@@ -72,12 +72,15 @@ def extract_source(content: bytes, filename: str) -> list[dict]:
                     raise ValueError('PDF exceeds 10 pages. Choose a shorter procedure.')
                 if not any(page.get_text().strip() for page in doc):
                     raise ValueError('This PDF is empty or scanned. OCR is not enabled; upload text instead.')
+                for page in doc:
+                    if not page.get_text().strip() and (page.get_images() or page.get_drawings()):
+                        raise ValueError('This PDF contains a scanned or image-only page. OCR is not enabled; upload a fully text-based procedure.')
             with tempfile.TemporaryDirectory(prefix='studio-source-') as td:
                 source = Path(td)/'source.pdf'; source.write_bytes(content)
                 extractor = PDFExtractor(str(source), use_cache=False)
                 try:
                     extractor.extract_all()
-                    pages = [{'page': p['page_number'], 'text': p['text'].strip()} for p in extractor.pages if p['text'].strip()]
+                    pages = [{'page': p['page_number'], 'text': p['text'].strip()} for p in extractor.pages]
                 finally:
                     if extractor.doc is not None and not extractor.doc.is_closed:
                         extractor.doc.close()
@@ -152,7 +155,8 @@ def validate_draft(draft: dict, pages: list[dict]) -> list[str]:
     sources = {p['page']: normalize(p['text']) for p in pages}
     errors = []
     for i, step in enumerate(parsed.steps, 1):
-        if step.page not in sources or normalize(step.quote) not in sources[step.page]:
+        quote = normalize(step.quote)
+        if len(quote) < 12 or step.page not in sources or quote not in sources[step.page]:
             errors.append(f'Step {i}: supporting quote was not found on page {step.page}. Review the source and regenerate.')
     return errors
 

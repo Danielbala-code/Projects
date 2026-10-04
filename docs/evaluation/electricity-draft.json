@@ -1,0 +1,40 @@
+{
+  "purpose": "collect a consistent monthly electricity report for human review.",
+  "steps": [
+    {
+      "action": "Record the site name",
+      "page": 1,
+      "quote": "The site coordinator records the site name, reporting period start date and reporting period end date."
+    },
+    {
+      "action": "The site coordinator records electricity usage in kWh and identifies the reporting owner.",
+      "page": 1,
+      "quote": "The site coordinator records electricity usage in kWh and identifies the reporting owner."
+    },
+    {
+      "action": "Attach a meter reading or supplier bill covering the reporting period",
+      "page": 1,
+      "quote": "The site coordinator attaches a meter reading or supplier bill covering the reporting period."
+    },
+    {
+      "action": "Verify that the end date is on or after the start date and that electricity usage is non-negative.",
+      "page": 1,
+      "quote": "The reporting owner checks that the end date is on or after the start date and that electricity usage is non-negative."
+    },
+    {
+      "action": "If information or evidence is missing, the reporting owner returns the report to the site coordinator for correction.",
+      "page": 1,
+      "quote": "If information or evidence is missing, the reporting owner returns the report to the site coordinator for correction."
+    },
+    {
+      "action": "Review the evidence against the reported figures",
+      "page": 1,
+      "quote": "A reviewer checks the evidence against the reported figures and records their decision."
+    },
+    {
+      "action": "Submit the report through the organisation's normal reporting process after human approval.",
+      "page": 1,
+      "quote": "Only after human approval may the reporting owner submit the report through the organisation's normal reporting process."
+    }
+  ]
+}

@@ -32,6 +32,16 @@ class PipelineTests(unittest.TestCase):
             with self.subTest(name=name, message=message), self.assertRaisesRegex(ValueError, message):
                 extract_source(content, name)
 
+    def test_mixed_scanned_pdf_cannot_silently_lose_a_source_page(self):
+        doc = fitz.open()
+        doc.new_page().insert_text((40, 40), 'The coordinator records the site name.')
+        image = fitz.open(); image.new_page().insert_text((40, 40), 'Human approval is required.')
+        pixmap = image[0].get_pixmap()
+        page = doc.new_page(); page.insert_image(page.rect, pixmap=pixmap)
+        content = doc.tobytes(); doc.close(); image.close()
+        with self.assertRaisesRegex(ValueError, 'scanned'):
+            extract_source(content, 'mixed.pdf')
+
     def test_custom_workflow_receives_source_and_returns_draft(self):
         pages = [{'page': 1, 'text': 'Attach the meter evidence to the report.'}]
         class Transport:
@@ -48,6 +58,7 @@ class PipelineTests(unittest.TestCase):
         invalid = {'purpose': 'Reporting', 'steps': [{'action': 'Submit.', 'page': 2, 'quote': 'Submit without checking the figures.'}]}
         self.assertTrue(validate_draft(invalid, pages))
         self.assertTrue(validate_draft({'purpose': 'Reporting', 'steps': []}, pages))
+        self.assertTrue(validate_draft({'purpose': 'Reporting', 'steps': [{'action': 'Invent a rule.', 'page': 1, 'quote': ' '*12}]}, pages))
 
     def test_selected_source_ids_copy_exact_quotes_from_original_pages(self):
         pages = [{'page': 1, 'text': 'Attach meter evidence to the report.'}, {'page': 2, 'text': 'A reviewer must approve the report.'}]
