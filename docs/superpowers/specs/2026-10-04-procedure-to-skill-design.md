@@ -1,6 +1,8 @@
 # Procedure-to-Skill Studio: portfolio demo design
 
-Status: proposed design for user review. Application implementation has not started.
+Status: under reassessment following the user's request to evaluate broader Skill Seekers reuse. This version is not approved for implementation. Application implementation has not started.
+
+Reassessment: Skill Seekers should be evaluated as the primary document-to-skill engine, including custom AI enhancement workflows, quality checks, packaging and its existing web interface. The electricity submission validator below is a separate extension and should not displace the original document-to-skill goal. A revised design must distinguish business-specific drafting/review from submission validation and verify generation-backend access. See `/workspace/research/2026-10-04-skill-seekers-reassessment.md` for inspected capabilities and limits.
 
 ## Purpose and success
 
