@@ -2,6 +2,12 @@
 
 A small business document tool built on **Skill Seekers**. Load a procedure, draft instructions with a local Hugging Face model, review the source and download a portable AI skill.
 
+**[Try the public demo](https://effective-space-winner-9g7q6g66v6jh7569-8000.app.github.dev/)** · **[Read the real-document evaluation](docs/evaluation/real-document-review.md)**
+
+Visitors do not need a GitHub login. GitHub may show a development-port notice; choose **Continue** to open the demo. Load the fictional example, choose **Sample preview** to try the review/export flow without inference, or **Generate** for local Qwen drafting. Review both the instructions and source before approving a download.
+
+The demo uses a GitHub Codespace and is available while that Codespace and its server are running. It may sleep or be unavailable; the repository and screenshot remain available. Use public or fictional inputs. This is a portfolio prototype for drafting and review; it does not certify procedural accuracy.
+
 This is an interview portfolio project in the Projects collection. Its fictional electricity-reporting example illustrates a reporting workflow; it is **not Vinarchy policy**. Vinarchy's [public sustainability page](https://vinarchy.com/pages/sustainability) describes collecting and auditing emissions data after its merger. That is business context, not evidence of an internal system problem or endorsement.
 
 ![Procedure-to-Skill Studio interface](docs/assets/studio.png)
@@ -13,15 +19,15 @@ This is an interview portfolio project in the Projects collection. Its fictional
 3. Inspect instructions beside their exact source quotes. Add missing instructions or correct wording. Unsupported quotes block approval.
 4. Acknowledge review, then download `SKILL.md`, source references, review metadata and a structural quality report.
 
-The model can omit details or misinterpret meaning. The exported skill retains full source requirements alongside clarifications. Exact quotation is a provenance check, not proof of semantic correctness or complete coverage. The process owner reviews both. Editing resets approval.
+The model can omit details or misinterpret meaning. The exported package retains extracted source text in its references and selected source passages alongside clarifications. Exact quotation is a provenance check, not proof of semantic correctness or complete coverage. The process owner reviews both. Editing resets approval.
 
 The **sample preview** demonstrates the same review/export flow without a downloaded model. It is explicitly labelled and uses fixed fictional content. Uploaded documents never silently use the preview.
 
 ## Run entirely in GitHub Codespaces
 
-After these changes are published to your GitHub repository:
+To run your own copy from this repository:
 
-1. Open that branch, select **Code → Codespaces → Create codespace**. Use a machine with at least 4 GB RAM; 4 CPU cores will help drafting speed.
+1. Open the repository on **main**, select **Code → Codespaces → Create codespace**. Use a machine with at least 4 GB RAM; 4 CPU cores will help drafting speed.
 2. Wait for the devcontainer setup to install the pinned dependencies. The sample preview does not need an API key or model download.
 3. For live local drafting, run:
 
@@ -37,9 +43,9 @@ After these changes are published to your GitHub repository:
    .venv/bin/python -m uvicorn studio.app:app --host 0.0.0.0 --port 8000
    ```
 
-5. Open port **8000** from the Codespaces Ports panel. Keep its default **private** visibility. The UI runs in your browser; Python and the model run on the Codespaces cloud computer.
+5. Open port **8000** from the Codespaces Ports panel. Keep **private** visibility for your own use. To share a public demonstration, right-click the port and select **Port Visibility → Public**, then copy the forwarded address. The UI runs in your browser; Python and the model run on the Codespaces cloud computer.
 
-Codespaces can stop when inactive and has account-specific quotas and charges. It is a development/demo runtime. GitHub Pages does not execute this Python backend. This repository's devcontainer has not yet been provisioned in a real Codespace; see [verification](docs/verification.md) for what was tested here.
+Codespaces can stop when inactive and has account-specific quotas and charges. It is a development/demo runtime. GitHub Pages does not execute this Python backend. The owner has run this project in Codespaces; see [verification](docs/verification.md) for tested behavior and limits.
 
 ## Run in another Linux cloud environment
 
@@ -70,6 +76,7 @@ No embeddings, vector database or Microsoft account are required for this first 
 
 - English text procedures: at most 5 MB, 10 PDF pages and 12,000 extracted characters.
 - Best results with short numbered instructions; at most 16 detected numbered steps. Long instructions need splitting. Freeform documents require especially careful coverage review.
+- Numbered drafting can omit applicability, prerequisites, tables and continuations across pages from the main skill. The reference file preserves extracted text, but table layout is flattened. Check the original document before operational use; see the [real-document evaluation](docs/evaluation/real-document-review.md).
 - No OCR, emissions calculation, evidence-content auditing or automatic external submission.
 - Single-user demo: sessions expire after one hour and are lost on restart. At most 32 active sessions. Export files are temporary and removed after download.
 - Use fictional/public demonstration data. This app has no organisational authentication, authorisation or confidential-data deployment controls.

@@ -50,6 +50,15 @@ A separate reviewer inspected the implementation and reproduced four Important d
 
 The scratch install, CPU build and runtime were verified. The initial compiler setting referred to unavailable Clang; selecting GCC/G++ fixed it. `bash scripts/setup.sh` also succeeded in a fresh repository-local `.venv`; its test suite passed all 18 tests and 8 subtests, and `pip check` found no broken requirements. The repository downloader also completed and verified the default model file. A final HTTP walkthrough using this fresh `.venv` uploaded the supplier fixture, generated all three steps in 10.75 seconds including model load, approved the current revision and downloaded a ZIP containing the full source requirements.
 
-Codespaces configuration and GitHub Actions checks are included. **Actual Codespaces provisioning, GitHub Actions execution on GitHub and public hosting have not run.** No application code has been pushed during this build. The cloud environment's reusable install/start instructions were saved as a draft; saving does not publish them or establish fresh-task restoration of local-only commits.
+Codespaces configuration and GitHub Actions checks are included. **At initial build completion**, Codespaces provisioning, GitHub Actions execution on GitHub and public hosting had not run; application code had not yet been pushed. The follow-up evidence below records subsequent publication and use. The cloud environment's reusable install/start instructions were saved as a draft; saving does not publish them or establish fresh-task restoration of local-only commits.
 
 Model health reports file presence; checksum verification occurs on first inference. Confidential organisation deployment, authenticated reviewers, OCR, Microsoft integration and broad document-quality evaluation are future work.
+
+
+## Publication and Codespaces follow-up
+
+- Code published to procedure-to-skill-studio; [GitHub Actions run](https://github.com/Danielbala-code/Projects/actions/runs/37207797955) completed successfully for commit 580f51c8092bd88ff63943116578f179dbe91fd9.
+- The owner provisioned a Codespace, completed dependency setup and downloaded the checksum-verified model. User-provided server logs and exported review metadata record use of the app with a real document.
+- The owner set port 8000 to Public. An unauthenticated request to the public /api/health endpoint returned status ok, Skill Seekers 3.10.0 and model_available true. This indicates model-file presence; integrity/load checks still occur on generation.
+- Public demo: https://effective-space-winner-9g7q6g66v6jh7569-8000.app.github.dev/ . GitHub may show its development-port notice. This is temporary Codespaces hosting, not an always-on service.
+- [Full exported-package evaluation](evaluation/real-document-review.md) confirms source-text preservation but identifies main-skill omissions and quality-check limitations. Passing software tests does not establish procedural completeness.
