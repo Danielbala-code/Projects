@@ -1,5 +1,7 @@
 # Fitness Front Desk Reliability Lab — first-step design
 
+**Status:** superseded as the proposed business workflow following the user's clarification that the goal is identifying attendees to invite into paid membership. See `docs/sweatpals/business-fit.md`. No application implementation followed this initial design.
+
 ## Purpose and scope
 
 Build a separate portfolio demonstration showing how an AI fitness front desk can answer event-access questions from membership policies and event facts, and how to evaluate its decisions. Sweatpals' supplied job description names semantic search, its Front Desk Agent, tool use, offline evaluation and latency as relevant work. This is independent fictional demonstration data, not Sweatpals data or a tested integration.
