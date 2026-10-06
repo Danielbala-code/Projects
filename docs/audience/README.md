@@ -101,3 +101,5 @@ For EXL-style fan reporting, replace invoice SQL with approved fan/event tables,
 Production work: authenticated tenant access, consent/deletion governance, event reconciliation, persisted randomized assignments, model calibration/drift monitoring, domain-specific evaluation and a controlled test of incremental benefit. This prototype demonstrates the workflow and its checks; it does not certify production security, customer eligibility or business lift.
 
 [Detailed verification evidence](verification.md). The static dashboard includes the original local Qwen draft and an author-reviewed example, clearly labelled as saved output.
+
+[CV bullet and interview explanation](application-note.md).

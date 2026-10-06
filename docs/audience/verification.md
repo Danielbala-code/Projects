@@ -22,3 +22,11 @@ Build session: 6 October 2026. Source data are historical 2010–2011 observatio
 ## Publication limits
 
 The user's external Codespace is a separate machine. Pushing GitHub does not pull or restart that server. GitHub Pages publishes only the static snapshot. Deployment and external availability are recorded separately after verification; a local browser pass alone is not proof of publication.
+
+## Independent whole-branch review
+
+A fresh read-only reviewer found no Critical/Important defects and independently passed47 tests plus8 subtests. Recomputed validation/test results from private SQLite matched the snapshot exactly. All30 quarantined invoices span at most one minute; none crosses a prediction cutoff. Cooldown eligibility at14 days, exclusion at13 days, and future-contact exclusion were checked.
+
+One Minor remains deferred: changing a filter before the snapshot loads can raise a browser error; successful normal loading works. Disable/guard controls in a later polish pass.
+
+Review boundaries: export fields come only from a closed fictional fixture; arbitrary imported campaign records would require spreadsheet-formula safeguards. Numeric/reference checks do not establish prose meaning, so human review remains required. This review does not certify production security, comprehensive accessibility, deployed availability or the external Codespace. Publication/browser checks are separate evidence.
