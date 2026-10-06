@@ -1,0 +1,1039 @@
+{
+  "schema_version": 1,
+  "built_at": "2026-10-06T19:09:35.898653+00:00",
+  "title": "Audience Engagement & Experiment Lab",
+  "source": {
+    "name": "UCI Online Retail",
+    "url": "https://archive.ics.uci.edu/dataset/352/online+retail",
+    "download_url": "https://archive.ics.uci.edu/static/public/352/data.csv",
+    "doi": "10.24432/C5BW33",
+    "creator": "Daqing Chen",
+    "license": "CC BY 4.0",
+    "bytes": 45038760,
+    "sha256": "a2f79bbdd4463df6db8a3f5a50b9c980ae8f645a370bf5e2c0d6097f9e817b05",
+    "domain": "UK-based gift retailer, including wholesalers; December 2010 to December 2011. No streaming or first-party EXL/Sky data.",
+    "mind_status": "MIND not used: current download requires HF access (401); old Azure release returned 409."
+  },
+  "audit": {
+    "rows": 541909,
+    "excluded": {
+      "cancellation": 9251,
+      "exact_duplicate": 5268,
+      "missing_customer": 134658,
+      "nonpositive_amount": 40
+    },
+    "kept_lines": 391106,
+    "conflicting_invoices": 30,
+    "conflicting_lines": 1586,
+    "invoices": 18502,
+    "known_customers": 4336,
+    "source_min_date": "2010-12-01T08:26:00",
+    "source_max_date": "2011-12-09T12:50:00",
+    "rule": "First matching reason; exact source-row deduplication is an assumption. Cancelled/returned and nonpositive lines excluded. Positive purchases do not measure net revenue."
+  },
+  "cohorts": {
+    "train": {
+      "cutoff": "2011-07-01",
+      "lookback_days": 90,
+      "horizon_days": 30,
+      "customers": 1968,
+      "repeat_purchasers": 617,
+      "repeat_rate": 0.313516,
+      "one_purchase_customers": 1147
+    },
+    "validation": {
+      "cutoff": "2011-09-01",
+      "lookback_days": 90,
+      "horizon_days": 30,
+      "customers": 1920,
+      "repeat_purchasers": 726,
+      "repeat_rate": 0.378125,
+      "one_purchase_customers": 1100
+    },
+    "test": {
+      "cutoff": "2011-11-01",
+      "lookback_days": 90,
+      "horizon_days": 30,
+      "customers": 2459,
+      "repeat_purchasers": 1055,
+      "repeat_rate": 0.429036,
+      "one_purchase_customers": 1452
+    }
+  },
+  "monthly": [
+    {
+      "month": "2010-12",
+      "invoices": 1399,
+      "customers": 885,
+      "positive_purchase_value_gbp": 570224.41
+    },
+    {
+      "month": "2011-01",
+      "invoices": 981,
+      "customers": 737,
+      "positive_purchase_value_gbp": 564546.15
+    },
+    {
+      "month": "2011-02",
+      "invoices": 992,
+      "customers": 755,
+      "positive_purchase_value_gbp": 441498.41
+    },
+    {
+      "month": "2011-03",
+      "invoices": 1318,
+      "customers": 972,
+      "positive_purchase_value_gbp": 592690.56
+    },
+    {
+      "month": "2011-04",
+      "invoices": 1145,
+      "customers": 854,
+      "positive_purchase_value_gbp": 467024.9
+    },
+    {
+      "month": "2011-05",
+      "invoices": 1551,
+      "customers": 1054,
+      "positive_purchase_value_gbp": 675333.84
+    },
+    {
+      "month": "2011-06",
+      "invoices": 1392,
+      "customers": 990,
+      "positive_purchase_value_gbp": 659824.67
+    },
+    {
+      "month": "2011-07",
+      "invoices": 1331,
+      "customers": 949,
+      "positive_purchase_value_gbp": 598962.9
+    },
+    {
+      "month": "2011-08",
+      "invoices": 1278,
+      "customers": 933,
+      "positive_purchase_value_gbp": 643195.12
+    },
+    {
+      "month": "2011-09",
+      "invoices": 1754,
+      "customers": 1265,
+      "positive_purchase_value_gbp": 946900.03
+    },
+    {
+      "month": "2011-10",
+      "invoices": 1928,
+      "customers": 1363,
+      "positive_purchase_value_gbp": 1034857.38
+    },
+    {
+      "month": "2011-11",
+      "invoices": 2655,
+      "customers": 1663,
+      "positive_purchase_value_gbp": 1155753.26
+    },
+    {
+      "month": "2011-12",
+      "invoices": 778,
+      "customers": 615,
+      "positive_purchase_value_gbp": 517190.44
+    }
+  ],
+  "countries": [
+    {
+      "country": "United Kingdom",
+      "invoices": 16619,
+      "customers": 3918,
+      "positive_purchase_value_gbp": 7268564.29
+    },
+    {
+      "country": "Germany",
+      "invoices": 457,
+      "customers": 94,
+      "positive_purchase_value_gbp": 228678.4
+    },
+    {
+      "country": "France",
+      "invoices": 388,
+      "customers": 87,
+      "positive_purchase_value_gbp": 207417.63
+    },
+    {
+      "country": "EIRE",
+      "invoices": 259,
+      "customers": 3,
+      "positive_purchase_value_gbp": 264078.24
+    },
+    {
+      "country": "Belgium",
+      "invoices": 98,
+      "customers": 25,
+      "positive_purchase_value_gbp": 41196.34
+    },
+    {
+      "country": "Netherlands",
+      "invoices": 94,
+      "customers": 9,
+      "positive_purchase_value_gbp": 285446.34
+    },
+    {
+      "country": "Spain",
+      "invoices": 90,
+      "customers": 30,
+      "positive_purchase_value_gbp": 61558.56
+    },
+    {
+      "country": "Portugal",
+      "invoices": 57,
+      "customers": 19,
+      "positive_purchase_value_gbp": 33375.84
+    },
+    {
+      "country": "Australia",
+      "invoices": 57,
+      "customers": 9,
+      "positive_purchase_value_gbp": 138453.81
+    },
+    {
+      "country": "Switzerland",
+      "invoices": 51,
+      "customers": 21,
+      "positive_purchase_value_gbp": 56443.95
+    },
+    {
+      "country": "Finland",
+      "invoices": 41,
+      "customers": 12,
+      "positive_purchase_value_gbp": 22546.08
+    },
+    {
+      "country": "Italy",
+      "invoices": 38,
+      "customers": 14,
+      "positive_purchase_value_gbp": 17483.24
+    },
+    {
+      "country": "Sweden",
+      "invoices": 36,
+      "customers": 8,
+      "positive_purchase_value_gbp": 38367.83
+    },
+    {
+      "country": "Norway",
+      "invoices": 36,
+      "customers": 10,
+      "positive_purchase_value_gbp": 36165.44
+    },
+    {
+      "country": "Channel Islands",
+      "invoices": 26,
+      "customers": 9,
+      "positive_purchase_value_gbp": 20440.54
+    },
+    {
+      "country": "Poland",
+      "invoices": 19,
+      "customers": 6,
+      "positive_purchase_value_gbp": 7334.65
+    },
+    {
+      "country": "Japan",
+      "invoices": 18,
+      "customers": 8,
+      "positive_purchase_value_gbp": 37370.8
+    },
+    {
+      "country": "Denmark",
+      "invoices": 18,
+      "customers": 9,
+      "positive_purchase_value_gbp": 18955.34
+    },
+    {
+      "country": "Austria",
+      "invoices": 17,
+      "customers": 11,
+      "positive_purchase_value_gbp": 10198.68
+    },
+    {
+      "country": "Cyprus",
+      "invoices": 16,
+      "customers": 8,
+      "positive_purchase_value_gbp": 13502.85
+    },
+    {
+      "country": "Unspecified",
+      "invoices": 8,
+      "customers": 4,
+      "positive_purchase_value_gbp": 2660.77
+    },
+    {
+      "country": "Singapore",
+      "invoices": 7,
+      "customers": 1,
+      "positive_purchase_value_gbp": 21279.29
+    },
+    {
+      "country": "Iceland",
+      "invoices": 7,
+      "customers": 1,
+      "positive_purchase_value_gbp": 4310.0
+    },
+    {
+      "country": "Canada",
+      "invoices": 6,
+      "customers": 4,
+      "positive_purchase_value_gbp": 3666.38
+    },
+    {
+      "country": "USA",
+      "invoices": 5,
+      "customers": 4,
+      "positive_purchase_value_gbp": 3580.39
+    },
+    {
+      "country": "Malta",
+      "invoices": 5,
+      "customers": 2,
+      "positive_purchase_value_gbp": 2725.59
+    },
+    {
+      "country": "Israel",
+      "invoices": 5,
+      "customers": 3,
+      "positive_purchase_value_gbp": 7215.84
+    },
+    {
+      "country": "Greece",
+      "invoices": 5,
+      "customers": 4,
+      "positive_purchase_value_gbp": 4760.52
+    },
+    {
+      "country": "Lithuania",
+      "invoices": 4,
+      "customers": 1,
+      "positive_purchase_value_gbp": 1661.06
+    },
+    {
+      "country": "European Community",
+      "invoices": 4,
+      "customers": 1,
+      "positive_purchase_value_gbp": 1300.25
+    },
+    {
+      "country": "United Arab Emirates",
+      "invoices": 3,
+      "customers": 2,
+      "positive_purchase_value_gbp": 1902.28
+    },
+    {
+      "country": "Czech Republic",
+      "invoices": 2,
+      "customers": 1,
+      "positive_purchase_value_gbp": 826.74
+    },
+    {
+      "country": "Bahrain",
+      "invoices": 2,
+      "customers": 2,
+      "positive_purchase_value_gbp": 548.4
+    },
+    {
+      "country": "Saudi Arabia",
+      "invoices": 1,
+      "customers": 1,
+      "positive_purchase_value_gbp": 145.92
+    },
+    {
+      "country": "RSA",
+      "invoices": 1,
+      "customers": 1,
+      "positive_purchase_value_gbp": 1002.31
+    },
+    {
+      "country": "Lebanon",
+      "invoices": 1,
+      "customers": 1,
+      "positive_purchase_value_gbp": 1693.88
+    },
+    {
+      "country": "Brazil",
+      "invoices": 1,
+      "customers": 1,
+      "positive_purchase_value_gbp": 1143.6
+    }
+  ],
+  "evaluation": {
+    "validation": {
+      "models": {
+        "train_prevalence": {
+          "customers": 1920,
+          "positives": 726,
+          "prevalence": 0.378125,
+          "roc_auc": 0.5,
+          "average_precision": 0.378125,
+          "top20_customers": 384,
+          "precision_top20": 0.377604,
+          "brier": 0.239321
+        },
+        "recency_rule": {
+          "customers": 1920,
+          "positives": 726,
+          "prevalence": 0.378125,
+          "roc_auc": 0.587459,
+          "average_precision": 0.44421,
+          "top20_customers": 384,
+          "precision_top20": 0.481771
+        },
+        "logistic_regression": {
+          "customers": 1920,
+          "positives": 726,
+          "prevalence": 0.378125,
+          "roc_auc": 0.708329,
+          "average_precision": 0.631566,
+          "top20_customers": 384,
+          "precision_top20": 0.700521,
+          "brier": 0.205517
+        }
+      },
+      "calibration": [
+        {
+          "bin": "0.0\u20130.2",
+          "customers": 608,
+          "predicted": 0.166369,
+          "observed": 0.200658
+        },
+        {
+          "bin": "0.2\u20130.4",
+          "customers": 854,
+          "predicted": 0.275451,
+          "observed": 0.354801
+        },
+        {
+          "bin": "0.4\u20130.6",
+          "customers": 274,
+          "predicted": 0.490371,
+          "observed": 0.565693
+        },
+        {
+          "bin": "0.6\u20130.8",
+          "customers": 122,
+          "predicted": 0.688266,
+          "observed": 0.745902
+        },
+        {
+          "bin": "0.8\u20131.0",
+          "customers": 62,
+          "predicted": 0.884988,
+          "observed": 0.887097
+        }
+      ],
+      "slices": [
+        {
+          "slice": "United Kingdom",
+          "models": {
+            "train_prevalence": {
+              "customers": 1715,
+              "positives": 652,
+              "prevalence": 0.380175,
+              "roc_auc": 0.5,
+              "average_precision": 0.380175,
+              "top20_customers": 343,
+              "precision_top20": 0.381924
+            },
+            "recency_rule": {
+              "customers": 1715,
+              "positives": 652,
+              "prevalence": 0.380175,
+              "roc_auc": 0.599395,
+              "average_precision": 0.453083,
+              "top20_customers": 343,
+              "precision_top20": 0.495627
+            },
+            "logistic_regression": {
+              "customers": 1715,
+              "positives": 652,
+              "prevalence": 0.380175,
+              "roc_auc": 0.713069,
+              "average_precision": 0.636611,
+              "top20_customers": 343,
+              "precision_top20": 0.71137
+            }
+          }
+        },
+        {
+          "slice": "Other countries",
+          "models": {
+            "train_prevalence": {
+              "customers": 205,
+              "positives": 74,
+              "prevalence": 0.360976,
+              "roc_auc": 0.5,
+              "average_precision": 0.360976,
+              "top20_customers": 41,
+              "precision_top20": 0.341463
+            },
+            "recency_rule": {
+              "customers": 205,
+              "positives": 74,
+              "prevalence": 0.360976,
+              "roc_auc": 0.494326,
+              "average_precision": 0.394935,
+              "top20_customers": 41,
+              "precision_top20": 0.390244
+            },
+            "logistic_regression": {
+              "customers": 205,
+              "positives": 74,
+              "prevalence": 0.360976,
+              "roc_auc": 0.654838,
+              "average_precision": 0.579939,
+              "top20_customers": 41,
+              "precision_top20": 0.634146
+            }
+          }
+        },
+        {
+          "slice": "One prior purchase",
+          "models": {
+            "train_prevalence": {
+              "customers": 1100,
+              "positives": 288,
+              "prevalence": 0.261818,
+              "roc_auc": 0.5,
+              "average_precision": 0.261818,
+              "top20_customers": 220,
+              "precision_top20": 0.304545
+            },
+            "recency_rule": {
+              "customers": 1100,
+              "positives": 288,
+              "prevalence": 0.261818,
+              "roc_auc": 0.45866,
+              "average_precision": 0.23698,
+              "top20_customers": 220,
+              "precision_top20": 0.204545
+            },
+            "logistic_regression": {
+              "customers": 1100,
+              "positives": 288,
+              "prevalence": 0.261818,
+              "roc_auc": 0.60406,
+              "average_precision": 0.33352,
+              "top20_customers": 220,
+              "precision_top20": 0.395455
+            }
+          }
+        },
+        {
+          "slice": "Multiple prior purchases",
+          "models": {
+            "train_prevalence": {
+              "customers": 820,
+              "positives": 438,
+              "prevalence": 0.534146,
+              "roc_auc": 0.5,
+              "average_precision": 0.534146,
+              "top20_customers": 164,
+              "precision_top20": 0.493902
+            },
+            "recency_rule": {
+              "customers": 820,
+              "positives": 438,
+              "prevalence": 0.534146,
+              "roc_auc": 0.579383,
+              "average_precision": 0.587228,
+              "top20_customers": 164,
+              "precision_top20": 0.585366
+            },
+            "logistic_regression": {
+              "customers": 820,
+              "positives": 438,
+              "prevalence": 0.534146,
+              "roc_auc": 0.696634,
+              "average_precision": 0.740894,
+              "top20_customers": 164,
+              "precision_top20": 0.817073
+            }
+          }
+        }
+      ]
+    },
+    "test": {
+      "models": {
+        "train_prevalence": {
+          "customers": 2459,
+          "positives": 1055,
+          "prevalence": 0.429036,
+          "roc_auc": 0.5,
+          "average_precision": 0.429036,
+          "top20_customers": 492,
+          "precision_top20": 0.445122,
+          "brier": 0.258309
+        },
+        "recency_rule": {
+          "customers": 2459,
+          "positives": 1055,
+          "prevalence": 0.429036,
+          "roc_auc": 0.553481,
+          "average_precision": 0.469406,
+          "top20_customers": 492,
+          "precision_top20": 0.502033
+        },
+        "logistic_regression": {
+          "customers": 2459,
+          "positives": 1055,
+          "prevalence": 0.429036,
+          "roc_auc": 0.692867,
+          "average_precision": 0.666036,
+          "top20_customers": 492,
+          "precision_top20": 0.72561,
+          "brier": 0.227597,
+          "auc_gain_vs_recency_ci95": [
+            0.112615,
+            0.165771
+          ]
+        }
+      },
+      "calibration": [
+        {
+          "bin": "0.0\u20130.2",
+          "customers": 860,
+          "predicted": 0.165687,
+          "observed": 0.267442
+        },
+        {
+          "bin": "0.2\u20130.4",
+          "customers": 1054,
+          "predicted": 0.277069,
+          "observed": 0.419355
+        },
+        {
+          "bin": "0.4\u20130.6",
+          "customers": 320,
+          "predicted": 0.490738,
+          "observed": 0.58125
+        },
+        {
+          "bin": "0.6\u20130.8",
+          "customers": 155,
+          "predicted": 0.682167,
+          "observed": 0.845161
+        },
+        {
+          "bin": "0.8\u20131.0",
+          "customers": 70,
+          "predicted": 0.890008,
+          "observed": 0.942857
+        }
+      ],
+      "slices": [
+        {
+          "slice": "United Kingdom",
+          "models": {
+            "train_prevalence": {
+              "customers": 2214,
+              "positives": 947,
+              "prevalence": 0.427733,
+              "roc_auc": 0.5,
+              "average_precision": 0.427733,
+              "top20_customers": 443,
+              "precision_top20": 0.428894
+            },
+            "recency_rule": {
+              "customers": 2214,
+              "positives": 947,
+              "prevalence": 0.427733,
+              "roc_auc": 0.550682,
+              "average_precision": 0.467453,
+              "top20_customers": 443,
+              "precision_top20": 0.489842
+            },
+            "logistic_regression": {
+              "customers": 2214,
+              "positives": 947,
+              "prevalence": 0.427733,
+              "roc_auc": 0.690311,
+              "average_precision": 0.660812,
+              "top20_customers": 443,
+              "precision_top20": 0.72009
+            }
+          }
+        },
+        {
+          "slice": "Other countries",
+          "models": {
+            "train_prevalence": {
+              "customers": 245,
+              "positives": 108,
+              "prevalence": 0.440816,
+              "roc_auc": 0.5,
+              "average_precision": 0.440816,
+              "top20_customers": 49,
+              "precision_top20": 0.346939
+            },
+            "recency_rule": {
+              "customers": 245,
+              "positives": 108,
+              "prevalence": 0.440816,
+              "roc_auc": 0.578737,
+              "average_precision": 0.499419,
+              "top20_customers": 49,
+              "precision_top20": 0.55102
+            },
+            "logistic_regression": {
+              "customers": 245,
+              "positives": 108,
+              "prevalence": 0.440816,
+              "roc_auc": 0.719654,
+              "average_precision": 0.712982,
+              "top20_customers": 49,
+              "precision_top20": 0.816327
+            }
+          }
+        },
+        {
+          "slice": "One prior purchase",
+          "models": {
+            "train_prevalence": {
+              "customers": 1452,
+              "positives": 454,
+              "prevalence": 0.312672,
+              "roc_auc": 0.5,
+              "average_precision": 0.312672,
+              "top20_customers": 291,
+              "precision_top20": 0.312715
+            },
+            "recency_rule": {
+              "customers": 1452,
+              "positives": 454,
+              "prevalence": 0.312672,
+              "roc_auc": 0.447133,
+              "average_precision": 0.286475,
+              "top20_customers": 291,
+              "precision_top20": 0.278351
+            },
+            "logistic_regression": {
+              "customers": 1452,
+              "positives": 454,
+              "prevalence": 0.312672,
+              "roc_auc": 0.572089,
+              "average_precision": 0.360776,
+              "top20_customers": 291,
+              "precision_top20": 0.371134
+            }
+          }
+        },
+        {
+          "slice": "Multiple prior purchases",
+          "models": {
+            "train_prevalence": {
+              "customers": 1007,
+              "positives": 601,
+              "prevalence": 0.596822,
+              "roc_auc": 0.5,
+              "average_precision": 0.596822,
+              "top20_customers": 202,
+              "precision_top20": 0.608911
+            },
+            "recency_rule": {
+              "customers": 1007,
+              "positives": 601,
+              "prevalence": 0.596822,
+              "roc_auc": 0.541593,
+              "average_precision": 0.608863,
+              "top20_customers": 202,
+              "precision_top20": 0.60396
+            },
+            "logistic_regression": {
+              "customers": 1007,
+              "positives": 601,
+              "prevalence": 0.596822,
+              "roc_auc": 0.682233,
+              "average_precision": 0.783775,
+              "top20_customers": 202,
+              "precision_top20": 0.881188
+            }
+          }
+        }
+      ]
+    }
+  },
+  "model": {
+    "type": "StandardScaler + L2 LogisticRegression",
+    "C": 1,
+    "seed": 17,
+    "training_rows": 1968,
+    "features": [
+      {
+        "name": "recency_days",
+        "coefficient_per_standard_deviation": 0.233173
+      },
+      {
+        "name": "log_purchase_count",
+        "coefficient_per_standard_deviation": 0.853626
+      },
+      {
+        "name": "log_positive_purchase_value",
+        "coefficient_per_standard_deviation": 0.284936
+      },
+      {
+        "name": "observed_tenure_days",
+        "coefficient_per_standard_deviation": -0.07516
+      }
+    ],
+    "iterations": 8,
+    "preprocessing_mean": [
+      34.90720062669957,
+      0.9834090665033255,
+      6.094236027298713,
+      52.6152206131454
+    ],
+    "decision": "Frozen C=1 and features before evaluation; no hyperparameter search. Train only July, inspect September separately, report November once. Coefficients describe association conditional on the other inputs, not causes."
+  },
+  "campaign": {
+    "asof": "2026-10-06",
+    "cooldown_days": 14,
+    "eligible": [
+      {
+        "id": "fictional-Ireland-lapsed-0",
+        "territory": "Ireland",
+        "segment": "lapsed",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-lapsed-1",
+        "territory": "Ireland",
+        "segment": "lapsed",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-lapsed-2",
+        "territory": "Ireland",
+        "segment": "lapsed",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-lapsed-3",
+        "territory": "Ireland",
+        "segment": "lapsed",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-recent-0",
+        "territory": "Ireland",
+        "segment": "recent",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-recent-1",
+        "territory": "Ireland",
+        "segment": "recent",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-recent-2",
+        "territory": "Ireland",
+        "segment": "recent",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Ireland-recent-3",
+        "territory": "Ireland",
+        "segment": "recent",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-lapsed-0",
+        "territory": "Italy",
+        "segment": "lapsed",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-lapsed-1",
+        "territory": "Italy",
+        "segment": "lapsed",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-lapsed-2",
+        "territory": "Italy",
+        "segment": "lapsed",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-lapsed-3",
+        "territory": "Italy",
+        "segment": "lapsed",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-recent-0",
+        "territory": "Italy",
+        "segment": "recent",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-recent-1",
+        "territory": "Italy",
+        "segment": "recent",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-recent-2",
+        "territory": "Italy",
+        "segment": "recent",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-Italy-recent-3",
+        "territory": "Italy",
+        "segment": "recent",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-lapsed-0",
+        "territory": "UK",
+        "segment": "lapsed",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-lapsed-1",
+        "territory": "UK",
+        "segment": "lapsed",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-lapsed-2",
+        "territory": "UK",
+        "segment": "lapsed",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-lapsed-3",
+        "territory": "UK",
+        "segment": "lapsed",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-recent-0",
+        "territory": "UK",
+        "segment": "recent",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-recent-1",
+        "territory": "UK",
+        "segment": "recent",
+        "group": "test",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-recent-2",
+        "territory": "UK",
+        "segment": "recent",
+        "group": "control",
+        "fictional": true
+      },
+      {
+        "id": "fictional-UK-recent-3",
+        "territory": "UK",
+        "segment": "recent",
+        "group": "control",
+        "fictional": true
+      }
+    ],
+    "excluded": [
+      {
+        "id": "fictional-duplicate",
+        "reason": "duplicate_identity"
+      },
+      {
+        "id": "fictional-excluded-0",
+        "reason": "wrong_organisation"
+      },
+      {
+        "id": "fictional-excluded-1",
+        "reason": "opt_out"
+      },
+      {
+        "id": "fictional-excluded-2",
+        "reason": "unknown_consent"
+      },
+      {
+        "id": "fictional-excluded-3",
+        "reason": "cooldown"
+      }
+    ],
+    "duplicate_source_records": 2,
+    "meaning": "Fictional allocation fixture only; no contacts sent, conversion outcomes or uplift measured. Stable hash ordering alternates within territory/segment; persist assignments in production."
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "text": "Source contains 541909 transaction lines; cleaning yields 18502 positive purchase invoices from 4336 known customers."
+    },
+    {
+      "id": "F2",
+      "text": "November holdout has 2459 previously active customers and 1055 repeat purchasers in the next 30 days."
+    },
+    {
+      "id": "F3",
+      "text": "November logistic regression ROC-AUC 0.693; recency-rule ROC-AUC 0.553."
+    },
+    {
+      "id": "F4",
+      "text": "November logistic regression average precision 0.666; recency-rule average precision 0.469."
+    },
+    {
+      "id": "F5",
+      "text": "This observational gift-retail dataset does not establish campaign lift, subscriber churn, streaming behaviour or company-specific performance."
+    },
+    {
+      "id": "F6",
+      "text": "Campaign consent and experiment allocation are tested only on separate fictional cases. No customer is contacted."
+    }
+  ],
+  "factual_brief": "On the November holdout, 2,459 previously active customers were evaluated. 1,055 purchased again within 30 days. Logistic regression ROC-AUC was 0.693, compared with 0.553 for the recency rule. These are observational retail results, not measured campaign lift or streaming churn.",
+  "limitations": [
+    "Repeat purchase is not churn or incremental campaign response. Only customers with a positive purchase in the preceding 90 days enter each cohort; no zero-history prediction.",
+    "The same customers can appear at different dates. July training outcomes end before September validation; November is the reserved later cohort. Customer behaviour and seasonality can shift.",
+    "Exact-row deduplication may remove legitimate identical items. Conflicting invoice identities/timestamps/countries are quarantined. Returns are excluded, so positive purchase values are not net revenue.",
+    "Raw source timestamps have no declared timezone. December is a partial month. Source identifiers and individual predictions are private and absent from this report.",
+    "ROC-AUC measures ranking across positives and negatives; average precision reflects the class balance. A recency rule is a ranking score, not a calibrated probability.",
+    "A paired 300-resample customer bootstrap describes uncertainty within November only; it does not cover training or seasonal uncertainty.",
+    "Country is recorded retail country, not inferred location. UK/Ireland/Italy campaign cases and consent are fictional and not joined to retail customers.",
+    "Qwen drafts prose from computed facts; it does not calculate metrics, decide consent or train the predictive model. Human review remains required."
+  ],
+  "integration": {
+    "EXL": "Adapt invoice/event SQL to approved fan event tables; report segments, quality exceptions and experiment cohorts. No fan growth or warehouse integration claimed.",
+    "Sky": "Replace purchases with approved viewing/subscription events, define retention and censoring with domain experts, validate on later markets/cohorts. No OTT performance claimed.",
+    "production": [
+      "Map approved warehouse tables and event contracts to the snapshot SQL.",
+      "Add authentication, tenant isolation, governed consent and deletion, monitoring and persisted experiment assignments.",
+      "Validate model calibration, seasonal drift and incremental lift in a randomized experiment before outreach."
+    ]
+  }
+}

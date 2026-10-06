@@ -1,0 +1,17 @@
+{
+  "generation_mode": "local-qwen",
+  "model": "Qwen2.5-1.5B-Instruct Q4_K_M",
+  "generation_seconds": 33.71,
+  "snapshot_built_at": "2026-10-06T19:09:35.898653+00:00",
+  "original_draft": "A retail dataset with 541,909 transactions, cleaned to 18,502 positive purchase invoices from 4,336 known customers. November holdout includes 2,459 active customers and 1,055 repeat purchasers. Logistic regression ROC-AUC is 0.693, average precision 0.666; recency-rule ROC-AUC is 0.553, average precision 0.469. Observational limitations: no campaign lift, no subscriber churn, no streaming behavior, no company-specific performance. No customer consent or contact. ",
+  "reviewed_example": "A retail dataset with 541,909 transaction lines, cleaned to 18,502 positive purchase invoices from 4,336 known customers. November holdout includes 2,459 active customers and 1,055 repeat purchasers. Logistic regression ROC-AUC is 0.693, average precision 0.666; recency-rule ROC-AUC is 0.553, average precision 0.469. Observational limitations: no campaign lift, no subscriber churn, no streaming behavior, no company-specific performance. Consent controls use separate fictional cases; no customer was contacted. ",
+  "fact_ids": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6"
+  ],
+  "review_notes": "Author checked against computed facts. Clarified item lines versus invoices and the separate fictional consent fixture. This saved example is not new browser inference or a correctness certification."
+}

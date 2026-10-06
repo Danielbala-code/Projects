@@ -20,10 +20,11 @@ jobs:
           CXX: g++
           CMAKE_BUILD_PARALLEL_LEVEL: '2'
           CMAKE_ARGS: '-DGGML_NATIVE=OFF -DGGML_CUDA=OFF'
-        run: python -m pip install -r requirements.txt -r requirements-membership.txt
+        run: python -m pip install -r requirements.txt -r requirements-membership.txt -r requirements-audience.txt
       - name: Verify core workflow without model weights
         run: python -m pytest -q
       - name: Check browser script syntax
         run: |
           node --check studio/static/app.js
           node --check membership/static/app.js
+          node --check docs/audience/app.js

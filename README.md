@@ -1,11 +1,12 @@
 # Interview portfolio projects
 
-Two independent prototypes with business context, source evidence and honest evaluation:
+Three independent prototypes with business context, source evidence and honest evaluation:
 
+- **[Audience Engagement & Experiment Lab](docs/audience/README.md)** — real UCI customer journeys, SQL snapshots, repeat-purchase baselines versus logistic regression, fictional campaign controls and optional local Qwen explanations. [Persistent static dashboard](https://danielbala-code.github.io/Projects/) and a live Codespaces interface at `/audience/`.
 - **[Membership Opportunity Lab](docs/sweatpals/README.md)** — helps a fictional fitness host identify repeat attendees to invite into a paid membership. Transparent eligibility rules, keyword versus MiniLM/FAISS comparison, and local Qwen invitation drafts. Built as a proposed component for Sweatpals' host workflow; no affiliation or customer data.
 - **Procedure-to-Skill Studio** — document-to-skill drafting and human review, described below.
 
-Run both in one process with `bash scripts/start_membership.sh`. The membership interface is at `/membership/`; the existing procedure interface remains at `/`.
+Run all three in one process with `bash scripts/start_audience.sh`. The audience interface is at `/audience/`, membership at `/membership/`, and procedure review at `/`. Audience reports use a saved measured snapshot and need no LLM download.
 
 # Procedure-to-Skill Studio
 
