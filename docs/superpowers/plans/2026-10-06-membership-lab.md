@@ -41,4 +41,4 @@ Files: `membership/static/`, README, devcontainer/setup helper, workflow and `do
 - [x] Build shortlist, evidence/detail drawer, editable draft, review-before-local-download and evaluation comparison.
 - [x] Run API/unit suite, browser walkthrough/mobile check and dependency check.
 - [x] Obtain one fresh whole-branch review, fix Important defects with RED→GREEN checks.
-- [ ] Publish updated code on project branch and main, verify public repository. Explain pulling/restarting the existing Codespace; publishing code does not restart it.
+- [x] Publish updated code on project branch and main, verify public repository. Explain pulling/restarting the existing Codespace; publishing code does not restart it.
