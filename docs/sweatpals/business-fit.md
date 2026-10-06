@@ -2,7 +2,7 @@
 
 ## Clarified user goal
 
-Help hosts identify existing attendees to invite into a paid membership. This is attendee-to-member conversion, not acquisition of previously unknown users, existing-member eligibility support or churn prediction. It replaces the initial front-desk workflow as the proposed portfolio focus. No new application implementation has started.
+Help hosts identify existing attendees to invite into a paid membership. This is attendee-to-member conversion, not acquisition of previously unknown users, existing-member eligibility support or churn prediction. It replaces the initial front-desk workflow as the proposed portfolio focus. The resulting prototype is documented in [README.md](README.md).
 
 ## Public evidence reviewed
 
@@ -47,4 +47,4 @@ The business hypothesis is that more relevant invitations improve incremental pa
 
 Start with a fictional CSV or JSON dataset and a read-only API. Real integration would require an approved event/attendance/member/plan data contract, current benefit terms, outreach permissions, outcome tracking and access controls. The public site does not establish an available integration API.
 
-Reuse the existing FastAPI and local-model foundation. Keep the wine project intact. The honest portfolio claim is an evaluated membership-opportunity prototype, not a deployed Sweatpals feature or a trained conversion model. Validate the revised workflow before implementing the new app.
+Reuse the existing FastAPI and local-model foundation. Keep the wine project intact. The honest portfolio claim is an evaluated membership-opportunity prototype, not a deployed Sweatpals feature or a trained conversion model. The app mounts at `/membership/` in the existing process and shares its local Qwen instance.

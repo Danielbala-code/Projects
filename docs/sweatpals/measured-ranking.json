@@ -1,0 +1,124 @@
+{
+  "baseline": {
+    "latency_ms": 0.99,
+    "evaluation": {
+      "meaning": "Manually authored synthetic relevance judgments; not observed conversion outcomes. No labels are used by ranking or invitation prompts.",
+      "splits": {
+        "development": {
+          "ranked_count": 7,
+          "top_k_denominator": 5,
+          "precision_at_5": 0.8,
+          "ndcg_at_5": 1.0,
+          "plan_match_correct": 5,
+          "plan_match_denominator": 5,
+          "top_ids": [
+            "nora",
+            "alex",
+            "riley",
+            "taylor",
+            "mixed"
+          ]
+        },
+        "held_out": {
+          "ranked_count": 7,
+          "top_k_denominator": 5,
+          "precision_at_5": 0.8,
+          "ndcg_at_5": 1.0,
+          "plan_match_correct": 5,
+          "plan_match_denominator": 5,
+          "top_ids": [
+            "maya",
+            "jordan",
+            "cooldown-boundary",
+            "sam",
+            "ryan"
+          ]
+        }
+      }
+    },
+    "top_ids": [
+      "nora",
+      "maya",
+      "jordan",
+      "alex",
+      "riley"
+    ],
+    "plan_choices": {
+      "nora": "pilates-4",
+      "maya": "run-4",
+      "jordan": "yoga-4",
+      "alex": "pilates-4",
+      "riley": "yoga-4",
+      "cooldown-boundary": "run-4",
+      "sam": "pilates-4",
+      "taylor": "run-4",
+      "mixed": "yoga-4",
+      "ryan": "yoga-4",
+      "elliot": "pilates-4",
+      "first-visit": "run-4",
+      "kai": "yoga-4",
+      "older-attendee": "pilates-4"
+    }
+  },
+  "semantic": {
+    "latency_ms": 588.53,
+    "evaluation": {
+      "meaning": "Manually authored synthetic relevance judgments; not observed conversion outcomes. No labels are used by ranking or invitation prompts.",
+      "splits": {
+        "development": {
+          "ranked_count": 7,
+          "top_k_denominator": 5,
+          "precision_at_5": 0.8,
+          "ndcg_at_5": 1.0,
+          "plan_match_correct": 5,
+          "plan_match_denominator": 5,
+          "top_ids": [
+            "nora",
+            "alex",
+            "riley",
+            "taylor",
+            "mixed"
+          ]
+        },
+        "held_out": {
+          "ranked_count": 7,
+          "top_k_denominator": 5,
+          "precision_at_5": 0.8,
+          "ndcg_at_5": 1.0,
+          "plan_match_correct": 5,
+          "plan_match_denominator": 5,
+          "top_ids": [
+            "jordan",
+            "maya",
+            "cooldown-boundary",
+            "sam",
+            "ryan"
+          ]
+        }
+      }
+    },
+    "top_ids": [
+      "jordan",
+      "maya",
+      "nora",
+      "alex",
+      "riley"
+    ],
+    "plan_choices": {
+      "jordan": "yoga-4",
+      "maya": "run-4",
+      "nora": "pilates-4",
+      "alex": "pilates-4",
+      "riley": "yoga-4",
+      "cooldown-boundary": "run-4",
+      "taylor": "run-4",
+      "sam": "pilates-4",
+      "mixed": "yoga-4",
+      "ryan": "yoga-4",
+      "elliot": "pilates-4",
+      "first-visit": "run-4",
+      "kai": "yoga-4",
+      "older-attendee": "pilates-4"
+    }
+  }
+}

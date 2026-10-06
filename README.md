@@ -1,3 +1,12 @@
+# Interview portfolio projects
+
+Two independent prototypes with business context, source evidence and honest evaluation:
+
+- **[Membership Opportunity Lab](docs/sweatpals/README.md)** — helps a fictional fitness host identify repeat attendees to invite into a paid membership. Transparent eligibility rules, keyword versus MiniLM/FAISS comparison, and local Qwen invitation drafts. Built as a proposed component for Sweatpals' host workflow; no affiliation or customer data.
+- **Procedure-to-Skill Studio** — document-to-skill drafting and human review, described below.
+
+Run both in one process with `bash scripts/start_membership.sh`. The membership interface is at `/membership/`; the existing procedure interface remains at `/`.
+
 # Procedure-to-Skill Studio
 
 A small business document tool built on **Skill Seekers**. Load a procedure, draft instructions with a local Hugging Face model, review the source and download a portable AI skill.

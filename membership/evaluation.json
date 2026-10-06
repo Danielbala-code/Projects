@@ -1,0 +1,115 @@
+{
+  "meaning": "Manually authored synthetic relevance judgments; not observed conversion outcomes. No labels are used by ranking or invitation prompts.",
+  "labels": {
+    "alex": {
+      "grade": 3,
+      "split": "development",
+      "expected_plan": "pilates-4"
+    },
+    "jordan": {
+      "grade": 3,
+      "split": "held_out",
+      "expected_plan": "yoga-4"
+    },
+    "nora": {
+      "grade": 3,
+      "split": "development",
+      "expected_plan": "pilates-4"
+    },
+    "maya": {
+      "grade": 3,
+      "split": "held_out",
+      "expected_plan": "run-4"
+    },
+    "riley": {
+      "grade": 2,
+      "split": "development",
+      "expected_plan": "yoga-4"
+    },
+    "sam": {
+      "grade": 2,
+      "split": "held_out",
+      "expected_plan": "pilates-4"
+    },
+    "taylor": {
+      "grade": 2,
+      "split": "development",
+      "expected_plan": "run-4"
+    },
+    "ryan": {
+      "grade": 1,
+      "split": "held_out",
+      "expected_plan": "yoga-4"
+    },
+    "elliot": {
+      "grade": 1,
+      "split": "development",
+      "expected_plan": null
+    },
+    "kai": {
+      "grade": 1,
+      "split": "held_out",
+      "expected_plan": null
+    },
+    "first-visit": {
+      "grade": 1,
+      "split": "development",
+      "expected_plan": null
+    },
+    "older-attendee": {
+      "grade": 1,
+      "split": "held_out",
+      "expected_plan": null
+    },
+    "mixed": {
+      "grade": 1,
+      "split": "development",
+      "expected_plan": "yoga-4"
+    },
+    "paid-member": {
+      "grade": 0,
+      "split": "held_out",
+      "expected_plan": null
+    },
+    "opted-out": {
+      "grade": 0,
+      "split": "development",
+      "expected_plan": null
+    },
+    "other-host": {
+      "grade": 0,
+      "split": "held_out",
+      "expected_plan": null
+    },
+    "recently-contacted": {
+      "grade": 0,
+      "split": "development",
+      "expected_plan": null
+    },
+    "unknown-consent": {
+      "grade": 0,
+      "split": "held_out",
+      "expected_plan": null
+    },
+    "unknown-status": {
+      "grade": 0,
+      "split": "development",
+      "expected_plan": null
+    },
+    "no-covered-activity": {
+      "grade": 0,
+      "split": "held_out",
+      "expected_plan": null
+    },
+    "no-visits": {
+      "grade": 0,
+      "split": "development",
+      "expected_plan": null
+    },
+    "cooldown-boundary": {
+      "grade": 2,
+      "split": "held_out",
+      "expected_plan": "run-4"
+    }
+  }
+}

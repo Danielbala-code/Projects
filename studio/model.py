@@ -20,6 +20,12 @@ class LocalModel:
         return self.path.is_file()
 
     def call(self, prompt: str, max_tokens: int = 1500) -> str:
+        schema = SelectedDraft.model_json_schema()
+        if len(re.findall(r'(?m)^\[\d+\]', prompt)) == 1:
+            schema['properties']['steps']['maxItems'] = 1
+        return self.complete('You extract business instructions faithfully. Return only the requested JSON; do not invent facts.', prompt, schema, max_tokens)
+
+    def complete(self, system: str, prompt: str, schema: dict, max_tokens: int = 500) -> str:
         with self._lock:
             if self._model is None:
                 if not self.available:
@@ -30,11 +36,8 @@ class LocalModel:
                     raise ValueError('Model checksum failed. Download the pinned model again.')
                 from llama_cpp import Llama
                 self._model = Llama(model_path=str(self.path), n_ctx=8192, n_threads=min(4, os.cpu_count() or 1), n_batch=256, verbose=False)
-            schema = SelectedDraft.model_json_schema()
-            if len(re.findall(r'(?m)^\[\d+\]', prompt)) == 1:
-                schema['properties']['steps']['maxItems'] = 1
             response = self._model.create_chat_completion(
-                messages=[{'role': 'system', 'content': 'You extract business instructions faithfully. Return only the requested JSON; do not invent facts.'}, {'role': 'user', 'content': prompt}],
+                messages=[{'role': 'system', 'content': system}, {'role': 'user', 'content': prompt}],
                 response_format={'type': 'json_object', 'schema': schema},
                 temperature=0, max_tokens=min(max_tokens, 1500),
             )

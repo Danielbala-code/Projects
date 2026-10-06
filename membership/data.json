@@ -1,0 +1,332 @@
+{
+  "fictional": true,
+  "host": {
+    "id": "urban-motion",
+    "name": "Urban Motion",
+    "currency": "USD",
+    "snapshot_date": "2026-10-06"
+  },
+  "plans": [
+    {
+      "id": "pilates-4",
+      "name": "Mat Club",
+      "activity": "pilates",
+      "monthly_price": 59,
+      "credits": 4,
+      "drop_in_rate": 18,
+      "benefits": "Four Pilates mat classes each month: mindful core strength, controlled movement and low-impact conditioning. Credits do not roll over. No workshops or guest passes.",
+      "terms": "$59 per month for 4 Urban Motion Pilates visits. Extra visits cost $18 each. No workshops, guest passes or guaranteed reservations."
+    },
+    {
+      "id": "yoga-4",
+      "name": "Flow Club",
+      "activity": "yoga",
+      "monthly_price": 49,
+      "credits": 4,
+      "drop_in_rate": 20,
+      "benefits": "Four yoga sessions each month: breath-led movement, flexibility, stretching, relaxation and a welcoming community. No Pilates or workshops.",
+      "terms": "$49 per month for 4 Urban Motion yoga visits. Extra visits cost $20 each. No Pilates, workshops or guaranteed reservations."
+    },
+    {
+      "id": "run-4",
+      "name": "Run Together",
+      "activity": "running",
+      "monthly_price": 29,
+      "credits": 4,
+      "drop_in_rate": 10,
+      "benefits": "Four coached social running sessions each month: jogging outdoors, pacing, beginner-friendly group runs and meeting other runners. No yoga or Pilates.",
+      "terms": "$29 per month for 4 Urban Motion coached running visits. Extra visits cost $10 each. No yoga, Pilates or guaranteed reservations."
+    }
+  ],
+  "attendees": [
+    {
+      "id": "alex",
+      "name": "Alex",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 4
+      },
+      "days_since_visit": 3,
+      "interests": "Mindful mat strength with a regular crew"
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "yoga": 4
+      },
+      "days_since_visit": 2,
+      "interests": "Breathing, gentle stretches and relaxing with people"
+    },
+    {
+      "id": "nora",
+      "name": "Nora",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 8
+      },
+      "days_since_visit": 1,
+      "interests": "Pilates mat sessions and core control"
+    },
+    {
+      "id": "maya",
+      "name": "Maya",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "running": 4
+      },
+      "days_since_visit": 2,
+      "interests": "Jogging outdoors and finding a running buddy"
+    },
+    {
+      "id": "riley",
+      "name": "Riley",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "yoga": 3,
+        "pilates": 1
+      },
+      "days_since_visit": 5,
+      "interests": "Yoga and breathwork help me unwind"
+    },
+    {
+      "id": "sam",
+      "name": "Sam",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 3
+      },
+      "days_since_visit": 7,
+      "interests": "Low impact strength in a friendly group"
+    },
+    {
+      "id": "taylor",
+      "name": "Taylor",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "running": 3
+      },
+      "days_since_visit": 8,
+      "interests": "I want a consistent social run"
+    },
+    {
+      "id": "ryan",
+      "name": "Ryan",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "yoga": 2,
+        "pilates": 2
+      },
+      "days_since_visit": 10,
+      "interests": "Stretching and relaxation are my favourites"
+    },
+    {
+      "id": "elliot",
+      "name": "Elliot",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 2
+      },
+      "days_since_visit": 12,
+      "interests": "Trying different mat classes"
+    },
+    {
+      "id": "kai",
+      "name": "Kai",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "yoga": 1
+      },
+      "days_since_visit": 5,
+      "interests": "Curious about meditation and gentle movement"
+    },
+    {
+      "id": "first-visit",
+      "name": "Lee",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "running": 1
+      },
+      "days_since_visit": 2,
+      "interests": "Just tried my first group run"
+    },
+    {
+      "id": "older-attendee",
+      "name": "Morgan",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 1
+      },
+      "days_since_visit": 27,
+      "interests": "Movement and meeting new people"
+    },
+    {
+      "id": "mixed",
+      "name": "Fin",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 2,
+        "yoga": 2,
+        "running": 1
+      },
+      "days_since_visit": 4,
+      "interests": "I prefer a breath-led stretch rather than a jog"
+    },
+    {
+      "id": "paid-member",
+      "name": "Pat",
+      "host_id": "urban-motion",
+      "membership_status": "active",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "pilates": 7
+      },
+      "days_since_visit": 1,
+      "interests": "Pilates every week"
+    },
+    {
+      "id": "opted-out",
+      "name": "Chris",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": false,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "yoga": 6
+      },
+      "days_since_visit": 1,
+      "interests": "Yoga"
+    },
+    {
+      "id": "other-host",
+      "name": "Robin",
+      "host_id": "harbour-fit",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "running": 6
+      },
+      "days_since_visit": 2,
+      "interests": "Running"
+    },
+    {
+      "id": "recently-contacted",
+      "name": "Drew",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": 3,
+      "visits_30d": {
+        "pilates": 5
+      },
+      "days_since_visit": 1,
+      "interests": "Pilates"
+    },
+    {
+      "id": "unknown-consent",
+      "name": "Avery",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": null,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "yoga": 4
+      },
+      "days_since_visit": 2,
+      "interests": "Yoga"
+    },
+    {
+      "id": "unknown-status",
+      "name": "Cameron",
+      "host_id": "urban-motion",
+      "membership_status": "unknown",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "running": 4
+      },
+      "days_since_visit": 2,
+      "interests": "Group runs"
+    },
+    {
+      "id": "no-covered-activity",
+      "name": "Quinn",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {
+        "workshop": 3
+      },
+      "days_since_visit": 2,
+      "interests": "Workshops only"
+    },
+    {
+      "id": "no-visits",
+      "name": "Sky",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": null,
+      "visits_30d": {},
+      "days_since_visit": 45,
+      "interests": "I might try fitness soon"
+    },
+    {
+      "id": "cooldown-boundary",
+      "name": "Blair",
+      "host_id": "urban-motion",
+      "membership_status": "none",
+      "marketing_opt_in": true,
+      "outreach_days_ago": 14,
+      "visits_30d": {
+        "running": 3
+      },
+      "days_since_visit": 5,
+      "interests": "Coached jogging with company"
+    }
+  ],
+  "outreach_cooldown_days": 14
+}

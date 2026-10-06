@@ -8,3 +8,12 @@ This repository retains its GNU GPL version 3 licence. Upstream dependencies ret
 - PyMuPDF: AGPL-3.0 or commercial licence, https://pymupdf.readthedocs.io/en/latest/about.html. This demo uses the open-source distribution through Skill Seekers. Evaluate licence obligations for any separate commercial deployment.
 
 All sample business procedures in this repository are fictional.
+
+Membership-lab dependencies (installed separately; model weights are not committed):
+
+- all-MiniLM-L6-v2 / Xenova ONNX conversion: Apache-2.0, https://huggingface.co/Xenova/all-MiniLM-L6-v2. Pinned artifacts and verification are defined in `scripts/download_embeddings.py`.
+- ONNX Runtime: MIT, https://github.com/microsoft/onnxruntime.
+- Hugging Face Tokenizers: Apache-2.0, https://github.com/huggingface/tokenizers.
+- FAISS: MIT, https://github.com/facebookresearch/faiss.
+
+All membership plans, attendee histories and relevance labels in this repository are fictional.

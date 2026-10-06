@@ -185,6 +185,8 @@ def create_app(model: object | None = None) -> FastAPI:
             shutil.rmtree(td, ignore_errors=True)
             raise
 
+    from membership.app import create_membership_app
+    app.mount('/membership', create_membership_app(backend), name='membership-lab')
     app.mount('/', StaticFiles(directory=ROOT/'studio'/'static', html=True), name='interface')
     return app
 
