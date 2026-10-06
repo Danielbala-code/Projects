@@ -6,6 +6,16 @@ Create one interview portfolio prototype for EXL's international fan analytics r
 
 Revision proposed after the user requested real customer-journey data, realistic simulation rules and explicit model decisions. The recommended core is now real, logged content engagement and personalisation using Microsoft MIND-small, rather than an invented retention outcome. This dataset choice remains for user review. The workflow is: audit behavioural logs, compare content-ranking approaches, explain engagement patterns, and demonstrate controlled campaign preparation separately. This is an independent prototype, with no company affiliation or access to either company's customer systems.
 
+## Implemented source decision
+
+The user approved the one-hour focused implementation. Source preflight found MIND's linked Hugging Face archive requires access (HTTP401), and the original Azure archive returns409. The implementation therefore uses the real UCI Online Retail alternative already described below, with the domain change visible throughout the product. The MIND ranking sections below record the original proposal; they are superseded for this build by the following retail contract. No MIND download gate was bypassed.
+
+**Actual target:** positive repeat-purchase invoice within 30 days among customers with a positive invoice in the preceding90 days. Item lines aggregate to invoices; missing identities, cancellation/nonpositive lines, exact duplicates and conflicting invoice metadata have visible exclusions. This does not measure subscription churn, streaming behaviour or incremental outreach benefit.
+
+**Frozen design:** train at2011-07-01, validation at2011-09-01, reserved test at2011-11-01; complete future windows required. Train-only StandardScaler and L2 logistic regression C=1 use recency, log invoice count, log positive purchase value and observed tenure within the90-day window. Compare against training prevalence and recency ranking on identical cohorts using ROC-AUC, average precision and top-fifth precision; show Brier/calibration, country/history slices and paired customer-bootstrap uncertainty. No embeddings or retrieval are needed for these numeric features. These decisions were committed in the implementation plan before real-data model evaluation.
+
+**Public boundary:** aggregate report and coefficients only, plus separate fictional UK/Ireland/Italy consent and experiment cases. Raw source, invoice database and customer-level predictions stay private/ignored. Qwen writes optional referenced prose; a saved original and author-reviewed example appears on Pages. The complete target budget is one hour; deployment checks and the external Codespace's update are distinguished from local success.
+
 ## Real journey dataset choice
 
 **Recommended: Microsoft MIND-small.** Its published schema provides anonymous reader IDs, impression timestamps, ordered pre-impression reading histories, displayed article candidates, and clicked/non-clicked labels. The small release samples 50,000 readers from Microsoft News logs collected in 2019. It represents reading behaviour, not streaming watch time or the acquisition-to-subscription lifecycle. Readers in the parent collection were selected for at least five clicks over six weeks, so the population is not representative of every visitor or inactive customer.

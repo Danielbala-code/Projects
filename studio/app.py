@@ -187,6 +187,8 @@ def create_app(model: object | None = None) -> FastAPI:
 
     from membership.app import create_membership_app
     app.mount('/membership', create_membership_app(backend), name='membership-lab')
+    from audience.app import create_audience_app
+    app.mount('/audience', create_audience_app(backend), name='audience-lab')
     app.mount('/', StaticFiles(directory=ROOT/'studio'/'static', html=True), name='interface')
     return app
 
