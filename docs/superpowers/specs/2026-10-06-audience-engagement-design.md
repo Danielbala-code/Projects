@@ -2,7 +2,7 @@
 
 ## Purpose and agreed direction
 
-Create one interview portfolio prototype for EXL's international fan analytics role and Sky's OTT data-science role. Reuse the existing FastAPI application and local Qwen instance. The user chose GitHub Codespaces as the runtime; permanent free hosting is outside this build.
+Create one interview portfolio prototype for EXL's international fan analytics role and Sky's OTT data-science role. Reuse the existing FastAPI application and local Qwen instance. The user chose GitHub Codespaces for the live runtime and subsequently requested a companion GitHub Pages site that remains viewable when that Codespace stops.
 
 The business workflow is: inspect content engagement, understand customer lifecycle segments, estimate return engagement, and prepare an eligible audience for a controlled campaign test. This is an independent prototype, with no company affiliation or access to either company's customer systems.
 
@@ -34,7 +34,9 @@ Generation is explicit and optional. Show missing-model and generation failures.
 
 Mount the new interface at `/audience/` in the existing process, sharing Qwen and preserving `/` and `/membership/`. Provide content reporting, customer segments, model comparison, campaign preview/export and an optional stakeholder brief. Bound filter inputs and exports. Keep downloaded source files, runtime database and model weights outside Git; retain reproducible download/build scripts, SQL, provenance and compact measured outputs.
 
-The implementation budget is 30 minutes for the focused prototype, with priority on the data pipeline, metrics, evaluated model and audience export. No new embedding model, agent framework, production authentication, live delivery, distributed warehouse integration or additional hosting account is required. Document how approved first-party data and a warehouse adapter would replace the simulation; claim only integrations actually exercised.
+Publish a companion static GitHub Pages dashboard containing generated reporting data, browser filters, the measured model comparison, provenance, sample campaign outputs and a reviewed example brief. It must work without contacting the Codespace. Label its build/snapshot time, real/synthetic data boundaries and example outputs. Link to the live Codespace separately for Python workflows and new Qwen generation; those actions require the server to be running. Pages does not execute the Python backend or Qwen. Preserve any existing Pages content and verify repository Pages configuration before choosing a deployment path. Do not invent an active Pages URL or claim deployment before it is verified.
+
+The implementation budget is 30 minutes for the focused prototype, with priority on the data pipeline, metrics, evaluated model and audience export. Pages packaging uses the same generated outputs; activation is subject to repository settings and available GitHub permissions. No new embedding model, agent framework, production authentication, live delivery, distributed warehouse integration or additional hosting account is required. Document how approved first-party data and a warehouse adapter would replace the simulation; claim only integrations actually exercised.
 
 ## Acceptance evidence
 
@@ -44,4 +46,5 @@ The implementation budget is 30 minutes for the focused prototype, with priority
 - Record actual predictive baseline comparison on the reserved chronological cohort.
 - Verify computed reports remain available when Qwen is absent or fails.
 - Exercise the browser flow and CSV export, and run the existing projects' regression tests.
+- Verify the Pages dashboard and filters function with the live backend unavailable, and check deployed Pages and live Codespace independently.
 - Publish tested code and an application note describing real-data and simulation boundaries; updating GitHub does not restart the user's separate Codespace.
