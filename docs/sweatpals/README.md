@@ -67,11 +67,11 @@ No provider token charges apply to local inference. Cloud CPU, storage, uptime a
 
 ## What the experiment found
 
-On the reserved synthetic split, both modes scored **precision@5 0.80**, **NDCG@5 1.00**, and **5/5 expected-plan matches**. Measured first-run ranking took **0.99 ms for keywords** and **588.53 ms for MiniLM including initialization** on this environment.
+On the reserved synthetic split, both modes scored **precision@5 0.80**, **NDCG@5 1.00**, and **5/5 expected-plan matches**. Measured first-run ranking took **0.76 ms for keywords** and **358.17 ms for MiniLM including initialization** on this environment.
 
 **No measured relevance improvement from embeddings on this fixture.** Keep the keyword baseline as the default. Validate semantic matching against broader independently labelled examples before paying its added cost. These small, easy examples and author-created labels cannot establish signup lift or production accuracy.
 
-The initial three real Qwen trials yielded two accepted drafts and one rejected draft. Exact wording still needs human review even when the narrow checks pass. See the evaluation record for the failure and subsequent changes.
+The initial three real Qwen trials yielded two accepted drafts and one rejected draft. Exact wording still needs human review even when the narrow checks pass. The formerly rejected Jordan draft passed after the false-positive correction; the [AI interface screenshot](../assets/membership-ai-draft.png) shows the actual output. See the evaluation record for the failure and subsequent changes.
 
 ## Developer checks
 
@@ -83,4 +83,4 @@ node --check membership/static/app.js
 
 Tests can run without downloaded model weights; actual CPU embedding/generation runs are recorded separately. The public app is a single-process demo using only fictional data, with no organisational authentication or durable review store. It is not a production integration.
 
-[Application note](application-note.md) · [Third-party notices](../../THIRD_PARTY_NOTICES.md)
+[Application note](application-note.md) · [Build decisions and review](build-decisions.md) · [Third-party notices](../../THIRD_PARTY_NOTICES.md)

@@ -24,21 +24,21 @@
 ## Task 1: Facts, rules and baseline
 Files: `membership/data.json`, `membership/engine.py`, `membership/evaluation.json`, `tests/test_membership.py`.
 Interfaces: `shortlist(mode, search=None) -> dict`, `evaluate(result) -> dict`, `facts_for(attendee_id, result) -> dict`.
-- [ ] Write failing mounted API and exclusion/pricing expectations.
-- [ ] Add declared fictional dataset, transparent scores, exclusions and labels kept out of ranking.
-- [ ] Verify baseline, pricing and existing suite; commit.
+- [x] Write failing mounted API and exclusion/pricing expectations.
+- [x] Add declared fictional dataset, transparent scores, exclusions and labels kept out of ranking.
+- [x] Verify baseline, pricing and existing suite; commit.
 
 ## Task 2: MiniLM and grounded draft/API
 Files: `membership/embeddings.py`, `membership/app.py`, `scripts/download_embeddings.py`, `studio/model.py`, `studio/app.py`, `requirements-membership.txt`.
 Interfaces: `MiniLM.similarities(query, plans) -> list[float]`; `LocalModel.complete(system, prompt, schema, max_tokens) -> str`; mounted GET health/shortlist and POST draft.
-- [ ] Add failure checks before implementing unavailable inference and draft constraints.
-- [ ] Implement verified tokenizer/model download, normalized mean pooling and FAISS; do not silently truncate.
-- [ ] Mount application and share Qwen, preserving old `call` contract; draft is unapproved text with visible evidence.
-- [ ] Run real embeddings and real invitation generation; save measurements, failures and limitations.
+- [x] Add failure checks before implementing unavailable inference and draft constraints.
+- [x] Implement verified tokenizer/model download, normalized mean pooling and FAISS; do not silently truncate.
+- [x] Mount application and share Qwen, preserving old `call` contract; draft is unapproved text with visible evidence.
+- [x] Run real embeddings and real invitation generation; save measurements, failures and limitations.
 
 ## Task 3: Interface, delivery and review
 Files: `membership/static/`, README, devcontainer/setup helper, workflow and `docs/sweatpals/evaluation.md`, application note.
-- [ ] Build shortlist, evidence/detail drawer, editable draft, review-before-local-download and evaluation comparison.
-- [ ] Run API/unit suite, browser walkthrough/mobile check and dependency check.
-- [ ] Obtain one fresh whole-branch review, fix Important defects with RED→GREEN checks.
+- [x] Build shortlist, evidence/detail drawer, editable draft, review-before-local-download and evaluation comparison.
+- [x] Run API/unit suite, browser walkthrough/mobile check and dependency check.
+- [x] Obtain one fresh whole-branch review, fix Important defects with RED→GREEN checks.
 - [ ] Publish updated code on project branch and main, verify public repository. Explain pulling/restarting the existing Codespace; publishing code does not restart it.

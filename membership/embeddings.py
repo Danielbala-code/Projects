@@ -34,6 +34,10 @@ class MiniLM:
 
     def _encode(self, texts):
         import numpy as np
+        # Hub tokenizer artifacts can carry fixed padding/truncation settings.
+        # We own both here so masks are accurate and oversize inputs fail visibly.
+        self._tokenizer.no_padding()
+        self._tokenizer.no_truncation()
         encoded = self._tokenizer.encode_batch(texts)
         if any(len(e.ids) > 256 for e in encoded):
             raise ValueError('Embedding input exceeds 256 tokens; shorten it rather than silently truncate.')

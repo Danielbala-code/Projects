@@ -153,3 +153,37 @@ def test_free_benefit_remains_blocked_after_harmless_phrase():
     body='Hi Alex, feel free to join: Mat Club includes free guest passes for $59 per month.'
     with TestClient(create_membership_app(DraftModel(body), search=MissingSearch())) as c:
         assert c.post('/api/draft', json={'attendee_id':'alex'}).status_code == 502
+
+
+def embedding_with_padded_tokenizer():
+    import numpy as np
+    from tokenizers import Tokenizer
+    from tokenizers.models import WordLevel
+    from tokenizers.pre_tokenizers import Whitespace
+    from membership.embeddings import MiniLM
+    tokenizer=Tokenizer(WordLevel({'[PAD]':0,'[UNK]':1,'Yoga':2},unk_token='[UNK]'))
+    tokenizer.pre_tokenizer=Whitespace()
+    tokenizer.enable_padding(length=128)
+    tokenizer.enable_truncation(max_length=128)
+    class Session:
+        inputs=None
+        def get_inputs(self):
+            return [type('Input',(),{'name':name})() for name in ['input_ids','attention_mask']]
+        def run(self, _, inputs):
+            self.inputs=inputs
+            return [np.ones((*inputs['input_ids'].shape,3),dtype=np.float32)]
+    search=MiniLM();search._tokenizer=tokenizer;search._session=Session()
+    return search
+
+
+def test_embedding_excludes_artifact_configured_padding():
+    search=embedding_with_padded_tokenizer()
+    search._encode(['Yoga'])
+    assert search._session.inputs['input_ids'].shape == (1,1)
+    assert search._session.inputs['attention_mask'].sum() == 1
+
+
+def test_embedding_rejects_long_text_without_artifact_truncation():
+    search=embedding_with_padded_tokenizer()
+    with pytest.raises(ValueError,match='exceeds 256 tokens'):
+        search._encode([' '.join(['Yoga']*300)])

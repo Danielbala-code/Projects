@@ -1,6 +1,6 @@
 {
   "baseline": {
-    "latency_ms": 0.99,
+    "latency_ms": 0.76,
     "evaluation": {
       "meaning": "Manually authored synthetic relevance judgments; not observed conversion outcomes. No labels are used by ranking or invitation prompts.",
       "splits": {
@@ -43,25 +43,10 @@
       "alex",
       "riley"
     ],
-    "plan_choices": {
-      "nora": "pilates-4",
-      "maya": "run-4",
-      "jordan": "yoga-4",
-      "alex": "pilates-4",
-      "riley": "yoga-4",
-      "cooldown-boundary": "run-4",
-      "sam": "pilates-4",
-      "taylor": "run-4",
-      "mixed": "yoga-4",
-      "ryan": "yoga-4",
-      "elliot": "pilates-4",
-      "first-visit": "run-4",
-      "kai": "yoga-4",
-      "older-attendee": "pilates-4"
-    }
+    "run_context": "Corrected tokenizer: artifact padding and truncation disabled; custom attention-mask pooling, explicit 256-token bound. Single CPU first-use run."
   },
   "semantic": {
-    "latency_ms": 588.53,
+    "latency_ms": 358.17,
     "evaluation": {
       "meaning": "Manually authored synthetic relevance judgments; not observed conversion outcomes. No labels are used by ranking or invitation prompts.",
       "splits": {
@@ -99,26 +84,11 @@
     },
     "top_ids": [
       "jordan",
-      "maya",
       "nora",
+      "maya",
       "alex",
       "riley"
     ],
-    "plan_choices": {
-      "jordan": "yoga-4",
-      "maya": "run-4",
-      "nora": "pilates-4",
-      "alex": "pilates-4",
-      "riley": "yoga-4",
-      "cooldown-boundary": "run-4",
-      "taylor": "run-4",
-      "sam": "pilates-4",
-      "mixed": "yoga-4",
-      "ryan": "yoga-4",
-      "elliot": "pilates-4",
-      "first-visit": "run-4",
-      "kai": "yoga-4",
-      "older-attendee": "pilates-4"
-    }
+    "run_context": "Corrected tokenizer: artifact padding and truncation disabled; custom attention-mask pooling, explicit 256-token bound. Single CPU first-use run."
   }
 }
